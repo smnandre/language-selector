@@ -2,9 +2,10 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        <title>DEMO</title>
+    
         {% block stylesheets %}
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.blue.css" />
         {% endblock %}
 
         {% block javascripts %}
@@ -12,6 +13,22 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <header>
+            <hgroup class="container" style="max-width: 1600px;">
+                <h1>Demo Selector</h1>
+                <p>Not what i would advice, but this is working :)</p>
+            </hgroup>
+        </header>
+        {% block body %}
+            <main class="container" style="max-width: 1600px;">
+                {% block content %}
+                {% endblock %}
+            </main>
+        {% endblock %}
+        <footer>
+            <div class="container" style="max-width: 1600px;">
+                <a href="https://github.com/smnandre">@smnandre</a>
+            </div>
+        </footer>
     </body>
 </html>

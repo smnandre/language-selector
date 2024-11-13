@@ -1,0 +1,23 @@
+<article{{ attributes }}>
+    
+    <header>
+        <h5>FooBar Filter ({{ prefix }})</h5>        
+    </header>
+    
+    <div style="min-height: 200px;">
+        {% for language in this.languages %}
+            {% set key = prefix ~ '_' ~ language %}
+           <label for="{{ key }}">
+               <input type="checkbox" name="{{ key }}" id="{{ key }}"  />
+                <span>{{ key }}</span>
+           </label>
+        {% endfor %}
+    </div>
+    
+    <footer style="height: 200px; overflow: scroll; scrollbar-width: none;">
+        <small>
+            {{ this.logger|reverse|join("\n")|nl2br }}
+        </small>
+    </footer>
+    
+</article>

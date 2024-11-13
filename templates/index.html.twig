@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+    <section class="container-fluid">
+        
+        <div class="grid">
+            
+            <twig:FooBarFilter prefix="one" />
+            
+            <twig:LanguageSelector loading="lazy" />
+            
+            <twig:FooBarFilter prefix="two" />
+            
+        </div>
+        
+    </section>
+
+{% endblock %}

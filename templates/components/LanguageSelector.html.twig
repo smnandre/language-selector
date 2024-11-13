@@ -1,0 +1,49 @@
+<article{{ attributes }}>
+    
+    <header>
+        <h5>Language Selector</h5>        
+    </header>
+    
+    <div style="min-height: 200px; display: grid; grid-template: 1fr 1fr / 1fr 1fr; gap: 0.5rem;">
+        
+        {% for language in ['DE', 'ES', 'FR', 'IT'] %}
+            
+            {% if language in this.selectedLanguages %}
+                
+                <button type="button"
+                        id="btn-{{ language }}"
+                        data-action="live#action"
+                        data-live-action-param="deselect"
+                        data-live-language-param="{{ language }}"
+                        style="background: green; display: flex; align-items: center; gap: 0.5rem;"
+                >
+                    <twig:ux:icon name="flag:{{ language|lower }}-4x3" style="width: 2.5rem; display: block;" />
+                    <span>{{ language }}: remove</span>
+                </button>
+                
+            {% else %}
+                
+                <button type="button"
+                        id="btn-{{ language }}"
+                        data-action="live#action"
+                        data-live-action-param="select"
+                        data-live-language-param="{{ language }}"
+                        style="display: flex; align-items: center; gap: 0.5rem;"
+                >
+                    <twig:ux:icon name="flag:{{ language|lower }}-4x3" style="width: 2.5rem; display: block;" />
+                    <span>{{ language }}: add</span>
+                </button>
+                
+            {% endif %}
+            
+        {% endfor %}
+        
+    </div>
+    
+    <footer style="height: 200px; overflow: scroll; scrollbar-width: none;">
+        <small>
+            {{ this.logger|reverse|join("\n")|nl2br }}
+        </small>
+    </footer>
+    
+</article>
